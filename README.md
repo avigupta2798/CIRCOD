@@ -10,7 +10,7 @@ Accepted in WACV 2025 <br />
 
 <!--[![Paper]()]() -->
 
-<img src = "Figures/Architecture.pdf" width="100%" height="100%">
+<img src = "Figures/Architecture.png" width="100%" height="100%">
 </div>
 
 ## Preparation
