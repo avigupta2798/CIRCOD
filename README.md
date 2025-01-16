@@ -1,5 +1,3 @@
-# CIRCOD: Co-Saliency Inspired Referring Camouflaged Object Discovery
-
 <!-- # CIRCOD - Official Pytorch Implementation (WACV 2025) -->
 <div align="center">
 <h1>Official Pytorch Implementation of CIRCOD: 
