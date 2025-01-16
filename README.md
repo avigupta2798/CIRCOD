@@ -1,18 +1,16 @@
-# CIRCOD: Co-Saliency Inspired Referring Camouflaged Object Discovery
-
 <!-- # CIRCOD - Official Pytorch Implementation (WACV 2025) -->
 <div align="center">
 <h1>Official Pytorch Implementation of CIRCOD: 
 
 Co-Saliency Inspired Referring Camouflaged Object Discovery </h1>
 Avi Gupta, Koteswar Rao Jerripothula, Tammam Tillo <br />
-Indraprastha Institute of Information Technology</sub><br />
+Indraprastha Institute of Information Technology, Delhi, India</sub><br />
 
 Accepted in WACV 2025 <br />
 
 <!--[![Paper]()]() -->
 
-<img src = "" width="100%" height="100%">
+<img src = "Figures/Architecture.pdf" width="100%" height="100%">
 </div>
 
 ## Preparation
@@ -24,7 +22,7 @@ Accepted in WACV 2025 <br />
 
 ### Datasets
 
-We use the [COD10K](), [NC4K](), [CAMO](), [R2C7K]() and proposed [Ref-1K]() for evaluation. You can download the datasets from the following links:
+We use the [COD10K](), [NC4K](), [CAMO](), [R2C7K]() and proposed [Ref-1K]() for evaluation.
 
 ```
 data_root/
@@ -52,8 +50,8 @@ data_root/
 ```
 ```
 
-
 ## Citation
+
 ```
 Will be updated soon
 ```
