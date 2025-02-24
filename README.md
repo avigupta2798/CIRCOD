@@ -43,15 +43,15 @@ data_root/
    │   ├── GT
 ```
 
-## Getting Started
-
-### Saliency Enhancement Network
-
-```
-```
-
 ## Citation
 
 ```
-Will be updated soon
+@InProceedings{Gupta_2025_WACV,
+    author    = {Gupta, Avi and Jerripothula, Koteswar Rao and Tillo, Tammam},
+    title     = {CIRCOD: Co-Saliency Inspired Referring Camouflaged Object Discovery},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {8302-8312}
+}
 ```
