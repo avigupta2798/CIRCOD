@@ -1,0 +1,47 @@
+dataset:
+  cod10k_train:
+    Images: ''
+    GT: ''
+  cod10k_test:
+    Images: ''
+    GT: ''
+  si1k_ref:
+    Images: ''
+    GT: ''
+  nc4k:
+    Images: ''
+    GT: ''
+  camo:
+    Images: ''
+    GT: ''
+  r2c7k_train:
+    Images: ''
+    GT: ''
+  r2c7k_test:
+    Images: ''
+    GT: ''
+  r2ck_ref:
+    Images: ''
+    GT: ''
+
+backbone:
+  res2net50: 
+    name: 'res2net50'
+    channels: [256,512,1024,2048]
+    path: './pre_trained_models/pvt_v2_b2.pth'
+  pvt_v2_b1: 
+    name: 'pvt_v2_b1'
+    channels: [64,128,320,512]
+    path: './pre_trained_models/pvt_v2_b1.pth'
+  pvt_v2_b2: 
+    name: 'pvt_v2_b2'
+    channels: [64,128,320,512]
+    path: './pre_trained_models/pvt_v2_b2.pth'
+  pvt_v2_b3: 
+    name: 'pvt_v2_b3'
+    channels: [64,128,320,512]
+    path: './pre_trained_models/pvt_v2_b3.pth'
+  pvt_v2_b4: 
+    name: 'pvt_v2_b4'
+    channels: [64,128,320,512]
+    path: './pre_trained_models/pvt_v2_b4.pth'

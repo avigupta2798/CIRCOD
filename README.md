@@ -6,7 +6,8 @@ Co-Saliency Inspired Referring Camouflaged Object Discovery </h1>
 Avi Gupta, Koteswar Rao Jerripothula, Tammam Tillo <br />
 Indraprastha Institute of Information Technology, Delhi, India</sub><br />
 
-[![Conference](https://img.shields.io/badge/WACV-2025-blue)](https://openaccess.thecvf.com/content/WACV2025/papers/Gupta_CIRCOD_Co-Saliency_Inspired_Referring_Camouflaged_Object_Discovery_WACV_2025_paper.pdf)<br />
+[![Conference](https://img.shields.io/badge/WACV-2025-blue)](https://openaccess.thecvf.com/content/WACV2025/papers/Gupta_CIRCOD_Co-Saliency_Inspired_Referring_Camouflaged_Object_Discovery_WACV_2025_paper.pdf)
+[![Project](https://img.shields.io/badge/Project-2025-red)](https://www.iiitd.edu.in/~avig/project/CIRCOD/index.html)<br />
 
 <!--[![Paper]()]() -->
 
@@ -21,13 +22,13 @@ Camouflaged object detection (COD), the task of identifying objects concealed wi
 ### Requirements
 Conda environment settings:
 ```
-conda create -n CIRCOD python=3.8
+conda create -f environment.yaml -n CIRCOD
 conda activate CIRCOD
 ```
 
 ### Datasets
 
-We use the [COD10K](), [NC4K](), [CAMO](), [R2C7K]() and proposed [Ref-1K](https://drive.google.com/file/d/15lPH9-ueSLx90cCeVFJhh-8N9M3om74S/view?usp=sharing) for evaluation.
+We use the [data](https://drive.google.com/drive/folders/16pzODVztI8ea0BRxJC0ZSobG7b56iXb-?usp=sharing) in below format for evaluation:
 
 ```
 data_root/
@@ -48,8 +49,42 @@ data_root/
    │   ├── GT
 ```
 
+### Pre-trained Models
+Download the pre-trained models from [here](https://drive.google.com/file/d/15lPH9-ueSLx90cCeVFJhh-8N9M3om74S/view?usp=sharing) and place it in the ``pre-trained`` folder.
+
+### Training
+To train the networks, run the below commands for saliency enhancement network (SEN)
+```
+python train_sen.py --lr 5e-5 --wd 0.0001 --gpu_main 0 --train_batch_size 8 --test_batch_size 8 --num_worker 4 --image_size 512 --epoches 10 --train_dataset cod10k_train --test_dataset camo --model_file checkpoints/sen_cod10k.pkl --task cod
+```
+```
+python train_sen.py --lr 5e-5 --wd 0.0001 --gpu_main 0 --train_batch_size 8 --test_batch_size 8 --num_worker 4 --image_size 512 --epoches 10 --train_dataset r2c7k_train --test_dataset r2c7k_test --model_file checkpoints/sen_r2c7k.pkl --task cod
+```
+and final CIRCOD:
+```
+CUDA_VISIBLE_DEVICES=0 python train_main.py --lr 5e-5 --wd 0.0001 --gpu_main 0 --num_worker 4 --train_batch_size 8 --test_batch_size 8 --image_size 512 --task rcod --epoches 60 --cod_train_dataset cod10k_train --cod_test_dataset camo --search_dataset si1k_ref --checkpoint checkpoints/circod_cod10k.pkl --sen_path checkpoints/sen_cod10k.pkl
+```
+```
+CUDA_VISIBLE_DEVICES=0 python train_main.py --lr 5e-5 --wd 0.0001 --gpu_main 0 --num_worker 4 --train_batch_size 8 --test_batch_size 8 --image_size 512 --task ref-cod --epoches 60 --cod_train_dataset r2c7k_train --cod_test_dataset r2c7k_test --search_dataset r2ck_ref --checkpoint checkpoints/circod_cod10k.pkl --sen_path checkpoints/sen_r2c7k.pkl
+```
+### Testing
+Download the checkpoints from [here](https://drive.google.com/file/d/15lPH9-ueSLx90cCeVFJhh-8N9M3om74S/view?usp=sharing) and place it in the ``checkpoints`` folder. Run the below commands for saliency enhancement network (SEN):
+```
+python test_sen.py --gpu_main 0 --image_size 512 --dataset camo --snapshot checkpoints/sen_cod10k.pkl --task cod
+```
+```
+python test_sen.py --gpu_main 0 --image_size 512 --dataset r2c7k_test --snapshot checkpoints/sen_r2c7k.pkl --task cod
+```
+and final CIRCOD:
+```
+CUDA_VISIBLE_DEVICES=0 python test_main.py --gpu 0 --image_size 512 --cod_dataset camo --search_dataset si1k_ref --snapshot checkpoints/sen_cod10k.pkl --sen_path checkpoints/sen_cod10k.pkl --task rcod
+```
+```
+CUDA_VISIBLE_DEVICES=0 python test_main.py --gpu 0 --image_size 512 --cod_dataset r2c7k_test --search_dataset r2ck_ref --snapshot checkpoints/ --sen_path checkpoints/sen_r2c7k.pkl --task ref-cod
+```
+**Remaining checkpoints will be uploaded soon.**
 ## Citation
-If you find the repository or the paper useful or you use the data, please use the following entry for citation.
+If you find the repository or the paper useful or you use the proposed data, please use the following entry for citation.
 ````BibTeX
 @InProceedings{Gupta_2025_WACV,
     author    = {Gupta, Avi and Jerripothula, Koteswar Rao and Tillo, Tammam},
