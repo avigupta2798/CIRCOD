@@ -50,7 +50,7 @@ data_root/
 ```
 
 ### Pre-trained Models
-Download the pre-trained models from [here](https://drive.google.com/file/d/15lPH9-ueSLx90cCeVFJhh-8N9M3om74S/view?usp=sharing) and place it in the ``pre-trained`` folder.
+Download the pre-trained models from [here](https://drive.google.com/drive/folders/13dIAgv27Cu0FJdAEf4g1QZtzjwiz7HM_?usp=sharing) and place it in the ``pre-trained`` folder.
 
 ### Training
 To train the networks, run the below commands for saliency enhancement network (SEN)
@@ -68,7 +68,7 @@ CUDA_VISIBLE_DEVICES=0 python train_main.py --lr 5e-5 --wd 0.0001 --gpu_main 0 -
 CUDA_VISIBLE_DEVICES=0 python train_main.py --lr 5e-5 --wd 0.0001 --gpu_main 0 --num_worker 4 --train_batch_size 8 --test_batch_size 8 --image_size 512 --task ref-cod --epoches 60 --cod_train_dataset r2c7k_train --cod_test_dataset r2c7k_test --search_dataset r2ck_ref --checkpoint checkpoints/circod_cod10k.pkl --sen_path checkpoints/sen_r2c7k.pkl
 ```
 ### Testing
-Download the checkpoints from [here](https://drive.google.com/file/d/15lPH9-ueSLx90cCeVFJhh-8N9M3om74S/view?usp=sharing) and place it in the ``checkpoints`` folder. Run the below commands for saliency enhancement network (SEN):
+Download the checkpoints from [here](https://drive.google.com/drive/folders/15WOWaYTOtRWmvye9GIsJZ3BU8q7OkUZo?usp=sharing) and place it in the ``checkpoints`` folder. Run the below commands for saliency enhancement network (SEN):
 ```
 python test_sen.py --gpu_main 0 --image_size 512 --dataset camo --snapshot checkpoints/sen_cod10k.pkl --task cod
 ```
