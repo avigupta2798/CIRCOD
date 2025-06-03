@@ -5,7 +5,6 @@ import numpy as np
 import argparse
 import time
 import sys
-#INDL0T6L1Y5
 sys.path.append('../CIRCOD/')
 
 from data.data import *
