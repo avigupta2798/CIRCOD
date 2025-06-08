@@ -22,8 +22,8 @@ Camouflaged object detection (COD), the task of identifying objects concealed wi
 ### Requirements
 Conda environment settings:
 ```
-conda create -f environment.yaml -n CIRCOD
-conda activate CIRCOD
+conda create -f environment.yml -n circod
+conda activate circod
 ```
 
 ### Datasets
